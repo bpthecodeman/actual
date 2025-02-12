@@ -107,6 +107,7 @@ export async function run() {
       ...config.https,
       key: parseHTTPSConfig(config.https.key),
       cert: parseHTTPSConfig(config.https.cert),
+      ca: parseHTTPSConfig(config.https.ca),
     };
     https.createServer(httpsOptions, app).listen(config.port, config.hostname);
   } else {

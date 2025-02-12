@@ -146,10 +146,13 @@ const finalConfig = {
   userFiles: process.env.ACTUAL_USER_FILES || config.userFiles,
   webRoot: process.env.ACTUAL_WEB_ROOT || config.webRoot,
   https:
-    process.env.ACTUAL_HTTPS_KEY && process.env.ACTUAL_HTTPS_CERT
+    process.env.ACTUAL_HTTPS_KEY &&
+    process.env.ACTUAL_HTTPS_CERT &&
+    process.env.ACTUAL_HTTPS_CA
       ? {
           key: process.env.ACTUAL_HTTPS_KEY.replace(/\\n/g, '\n'),
           cert: process.env.ACTUAL_HTTPS_CERT.replace(/\\n/g, '\n'),
+          ca: process.env.ACTUAL_HTTPS_CA.replace(/\\n/g, '\n'),
           ...(config.https || {}),
         }
       : config.https,
